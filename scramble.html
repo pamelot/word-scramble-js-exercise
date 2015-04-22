@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Scramble</title>
+    <script>
+
+
+    </script>
+</head>
+<body>
+    <h1>A Javascript Word Scramble Game</h1>
+
+    <script>
+        var WORDS     = ["booger", "apple", "hackbright", "mango"];
+        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+
+        var playing = true;
+
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        
+        while (playing) {
+
+            playing = true;
+            var wordsIndex = getRandomArbitrary(0, 4);
+            wordsIndex = Math.round(wordsIndex);
+            console.log(wordsIndex);
+            var puzzleWord = WORDS[wordsIndex];
+            console.log(puzzleWord);
+            var scrambledWord = SCRAMBLED[wordsIndex];
+
+            var wordPrompt = prompt("Try to guess the word! Scrambled word: " + scrambledWord);
+
+            while (wordPrompt !== puzzleWord) {
+                wordPrompt = prompt("Try again: " + scrambledWord);
+            } 
+
+            playing = confirm("Congratulations! You got it! Press OK To keep playing or Cancel to quit");
+                if (playing === "Cancel") {
+                    break;
+                }
+            }
+
+        alert("goodbye!");
+    </script>
+    
+</body>
+</html>
